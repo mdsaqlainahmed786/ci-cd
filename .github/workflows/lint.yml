@@ -1,0 +1,17 @@
+name: Linting and formatting PR
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  Continuous-Integration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Linting and formatting
+        run: npm run lint
+      - name: Check for formatting issues
+        run: npm run format:check
